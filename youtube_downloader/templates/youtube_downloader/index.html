@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Video Downloader</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <h1>
+        <a style="text-decoration:none; color:rebeccapurple" href="{% url 'index' %}">YouTube Video Downloader</a> -
+        <a style="text-decoration:none; color:rebeccapurple" href="{% url 'mp3down' %}">YouTube Mp3 Downloader</a> -
+        <a style="text-decoration:none; color:rebeccapurple" href="{% url 'playlist' %}">Youtube Playlist Downloader</a>
+    </h1>
+    <div id="container">
+        <label for="video_url"></label>
+        <input type="text" id="video_url" class="input" placeholder="Enter video URL">
+        <button id="fetch-info">Get Video Info</button>
+        <div id="loading" style="display: none;">Loading...</div>
+        <div id="video-info" style="display: none;">
+            <p id="video-title"></p>
+            <label for="resolution"></label>
+            <select id="resolution"></select>
+            <button id="download">Download</button>
+            <div id="downloading-message" style="display: none;">Downloading...</div> <!-- Eklenen div -->
+        </div>
+        <div id="status-message" style="display: none;">
+        </div>
+    </div>
+    <script src="{% static 'indexscripts.js' %}"></script>
+</body>
+</html>

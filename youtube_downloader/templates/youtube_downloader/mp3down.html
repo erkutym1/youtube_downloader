@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Mp3 Downloader</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <h1>
+        <a style="text-decoration:none; color:rebeccapurple" href="{% url 'index' %}">YouTube Video Downloader</a> -
+        <a style="text-decoration:none; color:rebeccapurple" href="{% url 'mp3down' %}">YouTube Mp3 Downloader</a> -
+        <a style="text-decoration:none; color:rebeccapurple" href="{% url 'playlist' %}">Youtube Playlist Downloader</a>
+    </h1>
+    <div id="container">
+        <label for="audio_url"></label>
+        <input type="text" id="audio_url" class="input" placeholder="Enter video URL for MP3">
+        <button id="fetch-audio-info">Get Audio Info</button>
+        <div id="loading" style="display: none;">Loading...</div>
+        <div id="audio-info" style="display: none;">
+            <p id="audio-title"></p>
+            <label for="bitrate"></label>
+            <select id="bitrate">
+                <option value="">Select bitrate</option>
+                <option value="320">320 kbps</option>
+                <option value="256">256 kbps</option>
+                <option value="192">192 kbps</option>
+                <option value="128">128 kbps</option>
+            </select>
+            <button id="download-audio">Download MP3</button>
+            <div id="downloading-message" style="display: none; text-align: center; margin-top: 1%">Downloading...</div> <!-- Eklenen div -->
+        </div>
+        <div id="status-message" style="display: none; text-align: center; margin-top: 1%;">
+        </div>
+    </div>
+    <script src="{% static 'mp3scripts.js' %}"></script>
+</body>
+</html>
